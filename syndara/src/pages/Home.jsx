@@ -7,7 +7,6 @@ import RealEstate from '../components/RealEstate';
 import Clarity from '../components/Clarity';
 import ClientSay from '../components/ClientSay';
 import Traction from '../components/Traction';
-import SmoothScroll from '../components/SmoothScroll';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +17,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen overflow-hidden">
-      <SmoothScroll>
       <HeroSection isVisible={isVisible} />
       <ActiveBusiness />
       <InDevelopment />
@@ -26,7 +24,6 @@ const Home = () => {
       <Clarity />
       <Traction />
       <ClientSay />
-    </SmoothScroll>
       
     </div>
   );

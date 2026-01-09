@@ -12,6 +12,7 @@ import HowItWorks from './pages/HowItWorks';
 import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import SmoothScroll from './components/SmoothScroll';
 import { Footer } from './components/Footer';
 
 const App = () => {
@@ -33,14 +34,16 @@ const App = () => {
          
           <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/borrowers" element={<Borrowers />} />
-          <Route path="/investors" element={<Investors />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/contact" element={<Contact />} />
+          <SmoothScroll>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/borrowers" element={<Borrowers />} />
+            <Route path="/investors" element={<Investors />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
+          </SmoothScroll>
         </Routes>
         <Footer />
         
