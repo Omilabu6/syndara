@@ -19,7 +19,7 @@ export function Navbar() {
   return (
     <>
       {/* Main Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-50/80 backdrop-blur-lg border-b border-white/30">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-50/90 backdrop-blur-lg border-b border-white/30">
         <nav className="max-w-7xl mx-auto px-8 flex items-center justify-between py-6">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">

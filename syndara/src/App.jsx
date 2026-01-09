@@ -21,7 +21,7 @@ const App = () => {
   return (
     <Router>
       <div className="relative">
-        {/* Navbar with slide-down animation */}
+        {/* Navbar OUTSIDE SmoothScroll - stays fixed */}
         {!isLoading && (
           <div
             style={{
@@ -31,10 +31,11 @@ const App = () => {
             <Navbar />
           </div>
         )}
-         
+        
+        {/* SmoothScroll only wraps content, not navbar */}
+        <SmoothScroll>
           <ScrollToTop />
-        <Routes>
-          <SmoothScroll>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/borrowers" element={<Borrowers />} />
@@ -43,9 +44,9 @@ const App = () => {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
-          </SmoothScroll>
-        </Routes>
-        <Footer />
+          </Routes>
+          <Footer />
+        </SmoothScroll>
         
         {isLoading && <LoadingReveal onComplete={() => setIsLoading(false)} />}
       </div>
