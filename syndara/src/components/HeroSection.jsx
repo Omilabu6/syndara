@@ -48,7 +48,7 @@ const HeroSection = () => {
           <h1 data-scroll
             data-scroll-speed="1.5" 
             className="text-2xl md:text-4xl font-serif font-bold ">
-            Built from $175M+ of real mortgage execution. Now building the platform layer
+            Built from <span className="text-orange-500">$175M+</span> of real mortgage execution. Now building the platform layer
           </h1>
           <h3  data-scroll
            data-scroll-speed="1.5" className="text-base md:text-lg mb-4 text-gray-100">
@@ -57,7 +57,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <button data-scroll 
-                data-scroll-speed="1.5" className="bg-[#faf8f5] w-full sm:w-auto flex justify-center text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-white transition">
+                data-scroll-speed="1.5" className="bg-orange-500 w-full sm:w-auto flex justify-center text-white px-6 py-3 rounded-lg font-medium hover:bg-white transition">
                 <a href="/contact" className="flex justify-center items-center">
                   <span>Submit a Scenario</span>
                   <motion.span
