@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Navbar from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const buildingFor = [
   {
@@ -64,7 +65,7 @@ const experience = [
 
 const Investors = () => {
   return (
-    <div className="data-scroll-section bg-white">
+    <div className=" bg-white">
         <Navbar />
       {/* Hero - Similar to Borrowers */}
       <section className="relative px-4 sm:px-6 md:px-10 bg-white text-black overflow-hidden pt-24">
@@ -251,6 +252,7 @@ const Investors = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

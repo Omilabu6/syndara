@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Building2, Wallet, Clock, ArrowRight, MapPin, TrendingUp, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Navbar from '../components/Navbar';
+import { Footer } from "../components/Footer";
 
 const caseStudies = [
   {
@@ -44,7 +45,7 @@ const caseStudies = [
 
 const CaseStudies = () => {
   return (
-    <div className="data-scroll-section bg-white">
+    <div className=" bg-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -282,6 +283,7 @@ const CaseStudies = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

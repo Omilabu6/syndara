@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import Navbar from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const existsToday = [
   "Origination, underwriting, and closing through standard processes",
@@ -78,7 +79,7 @@ const FloatingCard = ({ delay, className, children }) => (
 
 export default function HowItWorks() {
   return (
-    <div className="data-scroll-section bg-white">
+    <div className=" bg-white">
         <Navbar />
       
       {/* Hero - Asymmetric Split Design */}
@@ -378,6 +379,7 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

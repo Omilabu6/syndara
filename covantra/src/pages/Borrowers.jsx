@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Navbar from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const whoWeHelp = [
   {
@@ -70,7 +71,7 @@ const faqs = [
 
 const Borrowers = () => {
   return (
-    <div className='bg-white data-scroll-section'>
+    <div className='bg-white '>
         <Navbar />
       {/* Hero */}
       <section className="relative px-4 sm:px-6 md:px-10 bg-white text-black overflow-hidden pt-24">
@@ -221,6 +222,7 @@ const Borrowers = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

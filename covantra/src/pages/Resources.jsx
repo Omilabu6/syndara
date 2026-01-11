@@ -13,6 +13,7 @@ import {
   Percent,
   Scale
 } from "lucide-react";
+import { Footer } from "../components/Footer";
 
 
 
@@ -110,7 +111,7 @@ export default function Resources() {
   const regularResources = filteredResources.filter(r => !r.featured);
 
   return (
-    <div className="data-scroll-section bg-white">
+    <div className=" bg-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -352,6 +353,7 @@ export default function Resources() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

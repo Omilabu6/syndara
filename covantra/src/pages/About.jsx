@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 import Navbar from '../components/Navbar';
+import { Footer } from '../components/Footer';
 const values = [
   {
     icon: Shield,
@@ -34,7 +35,7 @@ const values = [
 
 const About = () => {
   return (
-    <div className="data-scroll-section bg-white">
+    <div className=" bg-white">
       <Navbar />
       
       {/* Hero Section */}
@@ -193,6 +194,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

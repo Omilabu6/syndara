@@ -6,86 +6,47 @@ const LoadingReveal = ({ onComplete }) => {
   const [slicePhase, setSlicePhase] = useState('idle');
    
   useEffect(() => {
-    const failsafe = setTimeout(() => {
-      console.log('Failsafe triggered - forcing animation completion');
-      // Instead of calling onComplete directly, trigger the fadeOut stage
-      setProgress(100);
-      setStage('fadeOut');
-    }, 10000);
+    let progressInterval;
+    let isComplete = false;
 
-    return () => clearTimeout(failsafe);
-  }, []);
-    
-  useEffect(() => {
-    let checkInterval;
-    let lastImageCount = 0;
-    let stableChecks = 0;
-    
-    const loadImages = () => {
-      const images = Array.from(document.images);
-      const totalImages = images.length;
+    // Simulate progress while loading
+    const startProgress = () => {
+      let currentProgress = 0;
       
-      console.log(`Found ${totalImages} images in the document`);
-      
-      // If no images found yet, keep checking
-      if (totalImages === 0) {
-        return false;
-      }
-
-      let loadedImages = 0;
-
-      const updateProgress = () => {
-        loadedImages++;
-        const newProgress = Math.round((loadedImages / totalImages) * 100);
-        setProgress(newProgress);
-        
-        console.log(`Image loaded: ${loadedImages}/${totalImages} (${newProgress}%)`);
-        
-        if (loadedImages === totalImages) {
-          setTimeout(() => setStage('fadeOut'), 500);
-        }
-      };
-
-      // Check each image
-      images.forEach(img => {
-        if (img.complete && img.naturalHeight !== 0) {
-          updateProgress();
+      progressInterval = setInterval(() => {
+        if (isComplete) {
+          // Once complete, jump to 100%
+          setProgress(100);
+          clearInterval(progressInterval);
+          setTimeout(() => setStage('fadeOut'), 300);
         } else {
-          img.addEventListener('load', updateProgress);
-          img.addEventListener('error', updateProgress);
+          // Slowly increment progress (but never reach 100% until actually complete)
+          currentProgress += Math.random() * 3;
+          if (currentProgress > 95) currentProgress = 95; // Cap at 95%
+          setProgress(Math.floor(currentProgress));
         }
-      });
-      
-      return true; // Images found and being tracked
+      }, 150);
     };
 
-    // Keep checking for new images until the DOM stabilizes
-    checkInterval = setInterval(() => {
-      const currentImageCount = document.images.length;
-      
-      // Check if image count has stabilized
-      if (currentImageCount === lastImageCount) {
-        stableChecks++;
-        
-        // If stable for 3 checks (600ms), start tracking
-        if (stableChecks >= 3) {
-          clearInterval(checkInterval);
-          const success = loadImages();
-          
-          // If still no images after stabilization, complete immediately
-          if (!success) {
-            console.log('No images found after DOM stabilized');
-            setProgress(100);
-            setTimeout(() => setStage('fadeOut'), 500);
-          }
-        }
-      } else {
-        stableChecks = 0;
-        lastImageCount = currentImageCount;
-      }
-    }, 200);
+    // Wait for everything to load
+    const handleLoad = () => {
+      console.log('Page fully loaded!');
+      isComplete = true;
+    };
 
-    return () => clearInterval(checkInterval);
+    // Check if already loaded (in case event already fired)
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    startProgress();
+
+    return () => {
+      clearInterval(progressInterval);
+      window.removeEventListener('load', handleLoad);
+    };
   }, []);
 
   useEffect(() => {

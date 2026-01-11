@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Mail } from 'lucide-react';
+import { Footer } from '../components/Footer';
 
 
 const Send = () => (
@@ -74,7 +75,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="data-scroll-section  bg-white">
+    <div className="  bg-white">
       <Navbar />
       
       {/* Toast Notification */}
@@ -132,9 +133,9 @@ export default function Contact() {
           </motion.div>
           <a
               href="mailto:info@covantra.com"
-              className="fixed border-2 border-white right-5 text-white 
+              className="absolute border-2 border-white right-5 text-white 
                         flex items-center gap-2 
-                        px-6 py-8 rounded-full 
+                        md:px-6 px-3 py-3 md:py-8 rounded-full 
                         shadow-lg  font-semibold
                         hover:bg-white/30
                         transition"
@@ -478,6 +479,7 @@ export default function Contact() {
           </motion.div>
         </motion.div>
       </section>
+      <Footer />
     </div>
   );
 }
