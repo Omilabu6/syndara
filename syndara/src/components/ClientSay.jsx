@@ -22,9 +22,9 @@ const ClientSay = () => {
               className="relative"
             >
               <img
-                src="/shiny.webp"
+                src="/green.jpg"
                 alt="Network visualization"
-                className="rounded-lg shadow-xl w-full"
+                className="rounded-2xl shadow-xl w-full"
               />
             </motion.div>
 

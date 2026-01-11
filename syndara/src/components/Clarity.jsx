@@ -37,7 +37,7 @@ const FeatureCard = ({ title, description, icon, variant, delay = 0 }) => {
         <img
           src={icon}
           alt={title}
-          className="w-full h-full object-cover rounded-xl transition-transform duration-500"
+          className="w-full h-full object-cover rounded-2xl transition-transform duration-500"
           style={{
             transform: isHovered ? 'scale(1.1)' : 'scale(1)',
           }}

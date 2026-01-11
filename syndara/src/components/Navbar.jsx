@@ -115,7 +115,7 @@ export function Navbar() {
                   <Link 
                     to="/contact?type=investor" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full px-4 py-2 text-center font-medium bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors"
+                    className="w-full px-4 py-2 text-center font-medium bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
                   >
                     Join Early Access
                   </Link>

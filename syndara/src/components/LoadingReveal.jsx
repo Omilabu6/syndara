@@ -1,5 +1,4 @@
-// src/components/LoadingReveal.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const LoadingReveal = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
@@ -8,12 +7,14 @@ const LoadingReveal = ({ onComplete }) => {
    
   useEffect(() => {
     const failsafe = setTimeout(() => {
-      console.log('Failsafe triggered - forcing completion');
-      onComplete();
+      console.log('Failsafe triggered - forcing animation completion');
+      // Instead of calling onComplete directly, trigger the fadeOut stage
+      setProgress(100);
+      setStage('fadeOut');
     }, 10000);
 
     return () => clearTimeout(failsafe);
-  }, [onComplete]);
+  }, []);
     
   useEffect(() => {
     let checkInterval;
@@ -108,7 +109,7 @@ const LoadingReveal = ({ onComplete }) => {
   const isFadingOut = stage === 'fadeOut';
 
   return (
-    <div className="fixed inset-0 z-50 pointer-events-none">
+    <div className="fixed inset-0 z-[10000] pointer-events-none">
       {/* Left curtain */}
       <div
         className="absolute top-0 left-0 h-full w-1/2 bg-white z-20"

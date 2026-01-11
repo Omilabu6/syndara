@@ -12,6 +12,7 @@ import HowItWorks from './pages/HowItWorks';
 import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import CustomCursor from './components/CustomCursor';
 import SmoothScroll from './components/SmoothScroll';
 import { Footer } from './components/Footer';
 
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <Router>
       <div className="relative">
+        <CustomCursor />
         {/* Navbar OUTSIDE SmoothScroll - stays fixed */}
         {!isLoading && (
           <div

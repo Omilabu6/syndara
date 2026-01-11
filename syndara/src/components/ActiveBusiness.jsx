@@ -185,7 +185,7 @@ const ActiveBusiness = () => {
         <img 
           src="/bg.png" 
           alt="Property" 
-          className='rounded-3xl w-full md:w-auto max-w-2xl shadow-lg hover:shadow-xl transition-shadow duration-300' 
+          className='rounded-2xl w-full md:w-auto max-w-2xl shadow-lg hover:shadow-xl transition-shadow duration-300' 
         />
       </motion.div>
     </div>
