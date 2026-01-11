@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const images = [
@@ -136,7 +137,7 @@ const HeroSection = () => {
                 data-scroll-speed="1.5" 
                 className="bg-orange-500 w-full sm:w-auto flex justify-center text-white px-6 py-3 rounded-lg font-medium  transition"
               >
-                <a href="/contact" className="flex justify-center items-center">
+                <Link to="/contact" className="flex justify-center items-center">
                   <span>Submit a Scenario</span>
                   <motion.span
                     className="ml-2"
@@ -145,7 +146,7 @@ const HeroSection = () => {
                   >
                     <ArrowRight className="h-5 w-5" />
                   </motion.span>
-                </a>
+                </Link>
               </button>
             </motion.div>
             
@@ -163,7 +164,7 @@ const HeroSection = () => {
                 data-scroll-speed="1.5" 
                 className="border-2 border-white w-full sm:w-auto text-white px-6 py-3 rounded-lg font-medium transition"
               >
-                <a href="/contact?type=investor">Join Early Access</a>
+                <Link to="/contact?type=investor">Join Early Access</ Link>
               </button>
             </motion.div>
           </motion.div>

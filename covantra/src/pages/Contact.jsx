@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import { Footer } from '../components/Footer';
 
 const Send = () => (
   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -556,6 +557,7 @@ export default function Contact() {
           </motion.div>
         </motion.div>
       </section>
+      <Footer />
     </div>
   );
 }
