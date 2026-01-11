@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const cursorSize = 12;
   
   const mouse = {
@@ -23,11 +24,31 @@ const CustomCursor = () => {
   };
   
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+  
+  useEffect(() => {
+    if (isMobile) return;
+    
     window.addEventListener("mousemove", manageMouseMove);
+    
     return () => {
       window.removeEventListener("mousemove", manageMouseMove);
     };
-  }, []);
+  }, [isMobile]);
+  
+  // Don't render on mobile
+  if (isMobile) return null;
   
   return (
     <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[10001]">
