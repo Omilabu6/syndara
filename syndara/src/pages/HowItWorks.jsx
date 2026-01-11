@@ -20,7 +20,7 @@ const existsToday = [
   "Borrower servicing occurs through normal payment rails",
 ];
 
-const syndaraAdds = [
+const covantraAdds = [
   "Permissioned investor onboarding and participation records",
   "Operational servicing workflows that reduce manual reconciliation",
   "Standardized statements and reporting designed for scale",
@@ -195,7 +195,7 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      {/* What Exists vs What Syndara Adds - Bento Style */}
+      {/* What Exists vs What Covantra Adds - Bento Style */}
       <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -249,7 +249,7 @@ export default function HowItWorks() {
               </div>
             </motion.div>
 
-            {/* What Syndara Adds */}
+            {/* What Covantra Adds */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -260,13 +260,13 @@ export default function HowItWorks() {
               <div className="relative p-8 md:p-10 bg-white rounded-3xl border border-gray-200 shadow-sm">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-6">
                   <Zap className="h-4 w-4" />
-                  What Syndara adds
+                  What Covantra adds
                 </div>
                 <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-6">
                   Modern administration layer
                 </h3>
                 <ul className="space-y-5">
-                  {syndaraAdds.map((item, index) => (
+                  {covantraAdds.map((item, index) => (
                     <motion.li 
                       key={index}
                       initial={{ opacity: 0, x: 10 }}
@@ -286,7 +286,7 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      {/* The Syndara Flow - Enhanced Cards */}
+      {/* The Covantra Flow - Enhanced Cards */}
       <section id="flow" className="py-16 md:py-24 px-6 md:px-10 bg-[#faf8f5]">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -296,7 +296,7 @@ export default function HowItWorks() {
             className="  mb-12 md:mb-16"
           >
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4">
-              The Syndara <span className="italic">flow</span>
+              The Covantra <span className="italic">flow</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
               A simple progression from traditional origination to modern reporting.

@@ -5,9 +5,9 @@ import Navbar from './Navbar';
 
 const HeroSection = () => {
   const images = [
-    '/bg.png',
-    '/longHouse.png',
-    '/shiny.webp',
+    '/nice.jpg',
+    '/hotel.jpg',
+    '/man.webp',
     '/twoStory.jpg'
   ];
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="absolute h-full inset-0 bg-gray-900/60 z-[1]" 
+          className="absolute h-full inset-0 bg-black/60 z-[1]" 
         />
       </div>
 
@@ -119,7 +119,7 @@ const HeroSection = () => {
             data-scroll-speed="1.5" 
             className="text-base md:text-lg mb-4 text-gray-100"
           >
-            Syndara is being built by an active Canadian mortgage team to modernize private mortgage participation, servicing, and reporting.
+            Covantra is being built by an active Canadian mortgage team to modernize private mortgage participation, servicing, and reporting.
           </motion.h3>
           
           <motion.div 
@@ -134,7 +134,7 @@ const HeroSection = () => {
               <button 
                 data-scroll 
                 data-scroll-speed="1.5" 
-                className="bg-orange-500 w-full sm:w-auto flex justify-center text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition"
+                className="bg-orange-500 w-full sm:w-auto flex justify-center text-white px-6 py-3 rounded-lg font-medium  transition"
               >
                 <a href="/contact" className="flex justify-center items-center">
                   <span>Submit a Scenario</span>

@@ -274,7 +274,7 @@ const InDevelopmentSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className={`mb-10 md:mb-16 animate-in-view ${isVisible ? 'visible' : ''}`}>
           <h2 className={`font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-gray-900 ${isVisible ? 'animate-heading' : ''}`}>
-            What Syndara is building.
+            What Covantra is building.
           </h2>
           <p className={`mt-4 md:mt-6 text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl ${isVisible ? 'animate-subheading' : ''}`}>
             A permissioned participation and servicing system designed to support eligible investor

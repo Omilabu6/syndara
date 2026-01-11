@@ -228,7 +228,7 @@ const CaseStudies = () => {
                       </p>
 
                       <div className="p-4 rounded-xl bg-orange-50 border border-orange-200">
-                        <p className="text-sm font-medium text-orange-600">What Syndara improves:</p>
+                        <p className="text-sm font-medium text-orange-600">What Covantra improves:</p>
                         <p className="text-gray-900 mt-1">{study.improvement}</p>
                       </div>
                     </div>

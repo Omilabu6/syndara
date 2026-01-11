@@ -81,7 +81,7 @@ const Investors = () => {
             
             <div className='flex flex-col justify-end items-end'>
               <p className="mt-6 md:mt-8 max-w-full sm:max-w-[500px] text-base sm:text-lg md:text-xl text-black leading-relaxed">
-                Syndara is building a permissioned system to modernize participation tracking, 
+                Covantra is building a permissioned system to modernize participation tracking, 
                 servicing workflows, and reporting for private mortgage capital.
               </p>
             </div>
@@ -126,7 +126,7 @@ const Investors = () => {
                 viewport={{ once: true }}
               >
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-4 md:mb-6">
-                  What Syndara is <br className="hidden sm:block" />
+                  What Covantra is <br className="hidden sm:block" />
                   <span className="italic">building for investors</span>
                 </h2>
                 <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">

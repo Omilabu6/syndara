@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
+import { Mail } from 'lucide-react';
 
 
 const Send = () => (
@@ -127,7 +128,20 @@ export default function Contact() {
             >
               Tell us what you are trying to do and when you need it done.
             </motion.p>
+             
           </motion.div>
+          <a
+              href="mailto:info@covantra.com"
+              className="fixed border-2 border-white right-5 text-white 
+                        flex items-center gap-2 
+                        px-6 py-8 rounded-full 
+                        shadow-lg  font-semibold
+                        hover:bg-white/30
+                        transition"
+            >
+              <Mail size={18} />
+              info@covantra.com
+            </a>
         </div>
       </section>
 

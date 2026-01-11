@@ -82,7 +82,7 @@ const About = () => {
               className="lg:sticky lg:top-24 lg:self-start"
             >
               <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-                ABOUT SYNDARA
+                ABOUT COVANTRA
               </h2>
               <h3 className='text-base md:text-lg text-gray-600 max-w-md'>
                 Our mission is to simplify mortgage operations through smart technology—helping teams work faster, stay compliant, and scale sustainably.
@@ -97,16 +97,16 @@ const About = () => {
               className="space-y-6 max-w-2xl text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed"
             >
               <p>
-                Syndara is being built by an active Canadian mortgage team operating under Mortgage Architects, led by Tara Borle's Team. Since 2020, the team has publicly funded over $175,000,000 in mortgages across both residential and commercial markets, working closely with borrowers, investors, and legal professionals across Canada.
+                Covantra is being built by an active Canadian mortgage team operating under Mortgage Architects, led by Tara Borle's Team. Since 2020, the team has publicly funded over $175,000,000 in mortgages across both residential and commercial markets, working closely with borrowers, investors, and legal professionals across Canada.
               </p>
               <p>
-                We created Syndara because while the mortgage business itself is well-established and trusted, the operational layer behind it remains heavily manual, fragmented, and time-consuming. From participation tracking to servicing workflows and reporting, many processes still rely on spreadsheets, emails, and repetitive admin work.
+                We created Covantra because while the mortgage business itself is well-established and trusted, the operational layer behind it remains heavily manual, fragmented, and time-consuming. From participation tracking to servicing workflows and reporting, many processes still rely on spreadsheets, emails, and repetitive admin work.
               </p>
               <p>
-                Our mission is to modernize this backend without disrupting what already works. Syndara focuses on scaling responsibly by improving transparency, accuracy, and efficiency while fully respecting existing legal closing standards and regulatory requirements.
+                Our mission is to modernize this backend without disrupting what already works. Covantra focuses on scaling responsibly by improving transparency, accuracy, and efficiency while fully respecting existing legal closing standards and regulatory requirements.
               </p>
               <p>
-                By streamlining internal operations, Syndara helps mortgage teams spend less time on paperwork and more time building relationships, closing deals, and delivering better service to clients and partners.
+                By streamlining internal operations, Covantra helps mortgage teams spend less time on paperwork and more time building relationships, closing deals, and delivering better service to clients and partners.
               </p>
             </motion.div>
           </div>
