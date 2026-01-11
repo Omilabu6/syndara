@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" overflow-hidden ">
       <SmmothScroll>
         <HeroSection isVisible={isVisible} />
         <ActiveBusiness />
