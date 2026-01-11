@@ -6,46 +6,95 @@ const LoadingReveal = ({ onComplete }) => {
   const [slicePhase, setSlicePhase] = useState('idle');
    
   useEffect(() => {
-    let progressInterval;
-    let isComplete = false;
+    let mounted = true;
+    const imageListeners = new Map();
 
-    // Simulate progress while loading
-    const startProgress = () => {
-      let currentProgress = 0;
-      
-      progressInterval = setInterval(() => {
-        if (isComplete) {
-          // Once complete, jump to 100%
-          setProgress(100);
-          clearInterval(progressInterval);
-          setTimeout(() => setStage('fadeOut'), 300);
+    const waitForImages = async () => {
+      // Wait a bit for DOM to be ready
+      await new Promise(resolve => {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', resolve, { once: true });
         } else {
-          // Slowly increment progress (but never reach 100% until actually complete)
-          currentProgress += Math.random() * 3;
-          if (currentProgress > 95) currentProgress = 95; // Cap at 95%
-          setProgress(Math.floor(currentProgress));
+          resolve();
         }
-      }, 150);
+      });
+
+      // Small delay to ensure all images are in DOM
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      const images = Array.from(document.images);
+      const totalImages = images.length;
+
+      console.log(`Found ${totalImages} images to load`);
+
+      if (totalImages === 0) {
+        // No images, complete immediately
+        console.log('No images found, completing...');
+        if (mounted) {
+          setProgress(100);
+          setTimeout(() => setStage('fadeOut'), 300);
+        }
+        return;
+      }
+
+      let loadedImages = 0;
+
+      const updateProgress = () => {
+        loadedImages++;
+        const newProgress = Math.round((loadedImages / totalImages) * 100);
+        
+        if (mounted) {
+          setProgress(newProgress);
+          console.log(`Image loaded: ${loadedImages}/${totalImages} (${newProgress}%)`);
+        }
+
+        if (loadedImages === totalImages) {
+          console.log('All images loaded!');
+          if (mounted) {
+            setTimeout(() => setStage('fadeOut'), 300);
+          }
+        }
+      };
+
+      // Track each image
+      images.forEach((img) => {
+        if (img.complete && img.naturalHeight !== 0) {
+          // Already loaded
+          updateProgress();
+        } else {
+          // Wait for load or error
+          const loadHandler = () => {
+            updateProgress();
+            img.removeEventListener('load', loadHandler);
+            img.removeEventListener('error', errorHandler);
+            imageListeners.delete(img);
+          };
+          
+          const errorHandler = () => {
+            console.warn('Image failed to load:', img.src);
+            updateProgress(); // Count as loaded even on error
+            img.removeEventListener('load', loadHandler);
+            img.removeEventListener('error', errorHandler);
+            imageListeners.delete(img);
+          };
+
+          img.addEventListener('load', loadHandler);
+          img.addEventListener('error', errorHandler);
+          imageListeners.set(img, { loadHandler, errorHandler });
+        }
+      });
     };
 
-    // Wait for everything to load
-    const handleLoad = () => {
-      console.log('Page fully loaded!');
-      isComplete = true;
-    };
-
-    // Check if already loaded (in case event already fired)
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-    }
-
-    startProgress();
+    waitForImages();
 
     return () => {
-      clearInterval(progressInterval);
-      window.removeEventListener('load', handleLoad);
+      mounted = false;
+      // Clean up all listeners
+      imageListeners.forEach((handlers, img) => {
+        img.removeEventListener('load', handlers.loadHandler);
+        img.removeEventListener('error', handlers.errorHandler);
+      });
+      imageListeners.clear();
     };
   }, []);
 
@@ -132,6 +181,11 @@ const LoadingReveal = ({ onComplete }) => {
                 }}
               />
             </div>
+            
+            {/* Optional: Show percentage */}
+            <p style={{ fontSize: '0.875rem', opacity: 0.6 }}>
+              {progress}%
+            </p>
           </div>
         )}
       </div>

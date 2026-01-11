@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="relative">
+      <div className="relative overflow-y-hidden">
         <CustomCursor />
         {/* Navbar OUTSIDE SmoothScroll - stays fixed */}
         {!isLoading && (
