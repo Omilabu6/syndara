@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom'; // Add this import
 
 const footerLinks = {
   main: [
@@ -14,7 +14,8 @@ const footerLinks = {
     { name: "Resources", href: "/resources" },
     { name: "Contact", href: "/contact" },
   ],
-  legal: [    { name: "Privacy Policy", href: "/legal" },
+  legal: [
+    { name: "Privacy Policy", href: "/legal" },
     { name: "Terms of Use", href: "/legal" },
     { name: "Disclosures", href: "/legal" },
   ],
@@ -26,9 +27,9 @@ export function Footer() {
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
           <div className="lg:col-span-1">
-            <a href="/" className="inline-block">
+            <Link to="/" className="inline-block"> {/* Changed from <a> */}
               <span className="font-serif text-2xl font-medium">Covantra</span>
-            </a>
+            </Link>
             <p className="mt-4 text-sm text-gray-400 leading-relaxed">
               Built from $175M+ of real mortgage execution. Now building the platform layer.
             </p>
@@ -41,9 +42,9 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.main.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -56,9 +57,9 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -71,9 +72,9 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link to={link.href} className="text-sm text-gray-300 hover:text-white transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
