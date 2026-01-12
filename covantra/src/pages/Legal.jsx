@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 
 const legalSections = [
   {
@@ -17,7 +16,7 @@ const legalSections = [
     ],
   },
   {
-    id: "privacy",
+    id: "privacy-policy",
     title: "Privacy Policy",
     content: [
       "Syndara collects information you submit through forms, including contact details and scenario information. We use this information to review requests, communicate with you, and support onboarding where applicable.",
@@ -26,7 +25,7 @@ const legalSections = [
     ],
   },
   {
-    id: "terms",
+    id: "terms-of-use",
     title: "Terms of Use",
     content: [
       "Website content is provided for general information and does not constitute legal, tax, or financial advice. You are responsible for decisions made based on your own due diligence and professional advice.",
@@ -35,12 +34,10 @@ const legalSections = [
   },
 ];
 
-
-
-
 const AccordionItem = ({ section, index, isOpen, onToggle }) => (
   <motion.div 
-    className="border-b border-gray-200"
+    id={section.id} // Add ID here for scrolling
+    className="border-b border-gray-200 scroll-mt-32" // scroll-mt-32 adds offset for fixed navbar
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -98,10 +95,32 @@ const AccordionItem = ({ section, index, isOpen, onToggle }) => (
 
 export default function Legal() {
   const [openSection, setOpenSection] = useState(null);
+  const location = useLocation();
 
   const toggleSection = (id) => {
     setOpenSection(openSection === id ? null : id);
   };
+
+  // Handle hash navigation and smooth scrolling
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // Open the accordion section
+        setOpenSection(id);
+        
+        // Smooth scroll to the element after a small delay to allow accordion to open
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   return (
     <div className="bg-white min-h-screen">
